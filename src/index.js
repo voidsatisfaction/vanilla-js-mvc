@@ -12,3 +12,4 @@ const penguinView = new PenguinView(targetElement);
 const controller = new PenguinController(penguinView, penguinModel);
 
 controller.onClickGetPenguin({ currentTarget: { dataset: { penguinIndex: 0 } } });
+controller.onClickGetAllPenguins();

@@ -36,6 +36,14 @@ class PenguinController {
     }
     this.penguinView.render(penguinViewModel);
   }
+
+  onClickGetAllPenguins() {
+    this.penguinModel.getAllPenguins(this.showAllPenguins);
+  }
+
+  showAllPenguins(penguins) {
+    console.log(penguins);
+  }
 }
 
 export default PenguinController;
