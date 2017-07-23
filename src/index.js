@@ -1,6 +1,6 @@
 import PenguinController from './js/controller';
 import PenguinModel from './js/model';
-import PenguinView from './js/view';
+import { PenguinView, HomeView } from './js/view';
 
 import './css/index.css';
 
@@ -8,8 +8,8 @@ const penguinModel = new PenguinModel(XMLHttpRequest);
 
 const targetElement = document.getElementById('listOfPenguins');
 const penguinView = new PenguinView(targetElement);
+const homeView = new HomeView(targetElement);
 
-const controller = new PenguinController(penguinView, penguinModel);
+const penguinController = new PenguinController(homeView, penguinView, penguinModel);
 
-controller.onClickGetPenguin({ currentTarget: { dataset: { penguinIndex: 0 } } });
-controller.onClickGetAllPenguins();
+penguinController.onClickGetAllPenguins();

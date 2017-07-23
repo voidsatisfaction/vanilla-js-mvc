@@ -1,11 +1,16 @@
 class PenguinController {
-  constructor(penguinView, penguinModel) {
+  constructor(homeView, penguinView, penguinModel) {
+    this.homeView = homeView;
     this.penguinView = penguinView;
     this.penguinModel = penguinModel;
 
     this.onClickGetPenguin = this.onClickGetPenguin.bind(this);
+    this.onClickGetAllPenguins = this.onClickGetAllPenguins.bind(this);
     this.showPenguin = this.showPenguin.bind(this);
+    this.showAllPenguins = this.showAllPenguins.bind(this);
 
+    this.homeView.onClickGetPenguin = this.onClickGetPenguin;
+    this.penguinView.onClickGetAllPenguins = this.onClickGetAllPenguins;
     this.penguinView.onClickGetPenguin = this.onClickGetPenguin;
   }
 
@@ -42,7 +47,7 @@ class PenguinController {
   }
 
   showAllPenguins(penguins) {
-    console.log(penguins);
+    this.homeView.render(penguins);
   }
 }
 
